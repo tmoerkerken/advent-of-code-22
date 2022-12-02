@@ -1,9 +1,8 @@
 # %%
 from pathlib import Path
 import numpy as np
-# %%
-# Loading input
-with open(Path(".").parent / "input.txt", "r") as fh:
+# %% Loading input
+with open(Path(__file__).parent / "input.txt", "r") as fh:
     input_data = fh.read()
 input_data_flat = input_data.split("\n")
 
