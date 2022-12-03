@@ -61,18 +61,30 @@ for round in input_data_flat:
         points += outcome_points[outcome]
 
 # %% Part 2: Forcing outcomes
+
+input_to_outcome = {
+    "X": "loss",
+    "Y": "draw",
+    "Z": "win",
+}
+
 def get_my_entry_for_outcome(outcome, opponent_entry):
-    opponent_entry, my_entry = round_entries
-
     if outcome == "win":
-        return ...
+        return win_lookup[opponent_entry]
     elif outcome == "loss":
-        return ...
+        return loss_lookup[opponent_entry]
     else:
-        return ...
+        return opponent_entry
 
+points = 0
 for round in input_data_flat:
     if len(round_entries := round.split(" ")) == 2:
-        opponent_entry, outcome = round_entries
+        opponent_entry, outcome_input = round_entries
+        outcome = input_to_outcome[outcome_input]
+
+        my_entry = get_my_entry_for_outcome(outcome, opponent_entry)
+        
+        points += outcome_points[outcome]
+        points += shape_points[my_entry]
 
 # %%
