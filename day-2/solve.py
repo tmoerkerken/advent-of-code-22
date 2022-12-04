@@ -70,9 +70,9 @@ input_to_outcome = {
 
 def get_my_entry_for_outcome(outcome, opponent_entry):
     if outcome == "win":
-        return win_lookup[opponent_entry]
-    elif outcome == "loss":
         return loss_lookup[opponent_entry]
+    elif outcome == "loss":
+        return win_lookup[opponent_entry]
     else:
         return opponent_entry
 
@@ -83,7 +83,6 @@ for round in input_data_flat:
         outcome = input_to_outcome[outcome_input]
 
         my_entry = get_my_entry_for_outcome(outcome, opponent_entry)
-        
         points += outcome_points[outcome]
         points += shape_points[my_entry]
 
